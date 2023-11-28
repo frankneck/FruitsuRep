@@ -3,11 +3,11 @@ from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Главная страница")
+    return render(request, 'main_app/base.html')
 
 
 def login(request):
-    return HttpResponse("Логин")
+    return render(request, 'main_app/auth.html')
 
 
 def pageNotFound(requset, exception):

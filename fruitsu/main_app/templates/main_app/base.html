@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/styles.css' %}" />
+    <title>Главная</title>
+    <style>
+   * {
+    margin: 0;
+    padding: 0;
+   }
+   img {
+       border-radius: 6px;
+   }
+  </style>
+</head>
+<body>
+    <div class="body-container">
+        <header class="site-header">
+            <a href="Base.html"><img class="logo-icon" src="../../style/logo.png"/></a>
+            <div class="right-buttons">
+                <input class="search"type="text" id="search" placeholder="Поиск">
+                <a href="UserProfile.html"><img class="user-icon" src="../../style/user.png" /></a>
+            </div>
+        </header>
+
+    <main role="main" class="main-container">
+            <div class="main-content">
+                <div class="showcase">
+                    <div class="poster">
+                        <img class="anime-poster" src="../../style/Soma.jpg"/>
+                        Повар боец Сома
+                    </div>
+                    <div class="poster">
+                        <img class="anime-poster" src="../../style/Naruto.jpg"/>
+                        Наруто
+                    </div>
+                    <div class="poster">
+                        <img class="anime-poster" src="../../style/Stone.webp"/>
+                        Доктор стоун
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="site-footer">
+            <div class="footer-content">
+                Данный проект реализован в рамках предмета "Програмная инженерия" самой позитивной командой "TheD".
+                При поддержке Скурского Степана Андреевича <br>
+                <p style="margin-left: 2vw; margin-top: 1vh; font-size: 3vw;"><3</p>
+            </div>
+            <div class="footer-content">
+                <p style="margin-bottom: 0.5vh; font-size: 1.9vw;"> Вот они слева направо: </p>
+                • Григорий левин (Teamlead) <br>
+                • Амосова Алина (Designer) <br>
+                • Раскалиновский Владислав (Backend) <br>
+                • Зубков Андрей (Frontend)
+            </div>
+        </footer>
+    </div>
+    </body>
+</html>
