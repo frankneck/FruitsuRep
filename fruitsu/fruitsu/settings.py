@@ -120,7 +120,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = "/FruitsuRep/fruitsu/main_app/static/"
 STATICFILES_DIRS = [
-    BASE_DIR / "main_app/stati",
+    BASE_DIR / "main_app/static",
 ]
 
 # Default primary key field type
