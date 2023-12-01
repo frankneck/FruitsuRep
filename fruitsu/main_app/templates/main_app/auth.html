@@ -24,11 +24,11 @@
             <a href="/../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="UserProfile.html"><img class="user-icon" src="../../style/user.png" /></a>
+                <a href="UserProfile.html"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
             </div>
         </header>
 
-    <main role="main" class="main-container">
+    <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
             <div class="main-content">
                 <div class="auth">
                     <p>ВХОД</p><br><br><br>
@@ -37,18 +37,18 @@
                         <input type="text" id="username" placeholder="логин"><br><br>
                         <label for="form pass"></label>
                         <input type="password" id="form-pass" class="form-pass" placeholder="пароль">
-                        <span class="pass-icon" id="pass-icon"><img src="../img/passeye.png" style="width:20px;height:20px"></span>
+                        <span class="pass-icon" id="pass-icon"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
 
                     </form>
                     <br>
                     <br>
-                    <a href="UserProfile.html" style="text-decoration: none;">
+                    <a href="../UserProfile.html" style="text-decoration: none;">
                     <div class="logbut">
                         <div class="button10">Войти</div>
                     </div>
                     </a>
                     <br>
-                    <a href="registration.html">
+                    <a href="../registration.html">
                         <div class="button10">Зарегистрироваться</div>
                     </a>
                 </div>

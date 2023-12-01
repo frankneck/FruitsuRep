@@ -11,7 +11,14 @@ def auth(request):
     return render(request, 'main_app/auth.html')
 
 
-def pageNotFound(requset, exception):
+def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
+
+def registration(request):
+    return render(request, 'main_app/registration.html')
+
+def UserProfile(request):
+    return render(request, 'main_app/UserProfile.html')
+
 
 
