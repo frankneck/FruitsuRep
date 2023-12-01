@@ -21,10 +21,10 @@
 <body>
     <div class="body-container">
         <header class="site-header">
-            <a href="Base.html"><img class="logo-icon" src="../../style/logo.png"/></a>
+            <a href="../"><img class="logo-icon" src="{% static 'main_app/img/logo.png'%}"/></a>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="UserProfile.html"><img class="user-icon" src="../../style/user.png" /></a>
+                <a href="UserProfile.html"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
             </div>
         </header>
 
@@ -38,7 +38,7 @@
                         <label for="form pass"></label>
                         <input type="password" id="form-pass1" class="form-pass" placeholder="пароль"><br><br>
                         <input type="password" id="form-pass2" class="form-pass" placeholder="подтвердите пароль"><br>
-                        <span class="pass-icon" id="pass-icon1"><img src="../../style/passeye.png" style="width:20px;height:20px"></span>
+                        <span class="pass-icon" id="pass-icon1"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
 
                     </form>
                     <br>

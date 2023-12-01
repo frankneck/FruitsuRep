@@ -21,17 +21,17 @@
 <body>
     <div class="body-container">
         <header class="site-header">
-            <a href="Base.html"><img class="logo-icon" src="../../style/logo.png"/></a>
+            <a href="../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="UserProfile.html"><img class="user-icon" src="../../style/user.png" /></a>
+                <a href="../UserProfile.html"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
             </div>
         </header>
 
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
         <div class="main-content">
             <div class="user">
-                <img class="profile-icon" src="../../style/ZeroTwo.jpg" />
+                <img class="profile-icon" src="{% static 'main_app/img/ZeroTwo.jpg'%}" />
                 <div class="Nickname">ZeroTwoBestWaifu</div>
             </div>
             <div class="urls">
@@ -39,7 +39,7 @@
                 <a class="url-box" href="">Избранное</a>
                 <a class="url-box" href="">Данные аккаунта</a>
             </div>
-            <a class="url-box" href="auth.html" style="background-color: #FFC0CB">Выйти из профиля</a>
+            <a class="url-box" href="../auth.html" style="background-color: #FFC0CB">Выйти из профиля</a>
         </div>
     </main>
 
