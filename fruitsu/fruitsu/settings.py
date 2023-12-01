@@ -118,9 +118,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = "/FruitsuRep/fruitsu/main_app/static/"
+STATIC_ROOT = "/fruitsu/main_app/static/"
 STATICFILES_DIRS = [
-    BASE_DIR / "main_app/static",
+    BASE_DIR / "static",
 ]
 
 # Default primary key field type
