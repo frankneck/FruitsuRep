@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'main_app/css/styles.css' %}" />
     <title>Главная</title>
     <style>
    * {
@@ -19,14 +19,14 @@
 <body>
     <div class="body-container">
         <header class="site-header">
-            <a href="Base.html"><img class="logo-icon" src="{% static 'main_app/img/Logo.png' %}"/></a>
+            <a href="/../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png' %}"/></a>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="UserProfile.html"><img class="user-icon" src="{% static 'main_app/img/user.png' %}" /></a>
+                <a href="auth.html"><img class="user-icon" src="{% static 'main_app/img/user.png' %}" /></a>
             </div>
         </header>
 
-    <main role="main" class="main-container">
+    <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
             <div class="main-content">
                 <div class="showcase">
                     <div class="poster">

@@ -1,3 +1,7 @@
 from django.contrib import admin
+from . import models
+from mptt.admin import MPTTModelAdmin
 
-# Register your models here.
+admin.site.register(models.Category, MPTTModelAdmin)
+admin.site.register(models.Compound)
+admin.site.register(models.Recipe)

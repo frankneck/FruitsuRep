@@ -44,7 +44,6 @@
 }
 
 .main-container {
-    background-image: url("../../style/Background.jpg");
     background-size: 25%;
     width: 100%;
     display: flex;
