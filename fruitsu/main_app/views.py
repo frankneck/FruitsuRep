@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.template import loader
+from .models import Post
 
 
 def index(request):
@@ -19,6 +20,16 @@ def registration(request):
 
 def UserProfile(request):
     return render(request, 'main_app/UserProfile.html')
+
+def home(request):
+    context = {
+        'posts': Post.objects.all()
+    }
+    return render(request, 'blog/home.html', context)
+
+
+def about(request):
+    return render(request, 'blog/about.html', {'title': 'О клубе Python Bytes'})
 
 
 

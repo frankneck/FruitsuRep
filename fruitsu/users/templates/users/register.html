@@ -24,7 +24,7 @@
             <a href="../"><img class="logo-icon" src="{% static 'main_app/img/logo.png'%}"/></a>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="../auth.html"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
+                <a href="../login/"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
             </div>
         </header>
 
@@ -32,20 +32,22 @@
             <div class="main-content">
                 <div class="auth">
                     <p>РЕГИСТРАЦИЯ</p><br><br><br>
-                    <form action="#">
+                    <form action="" method="post">
+                        {% csrf_token %}
                         <label for="username"></label>
-                        <input type="text" id="username" placeholder="логин"><br><br>
+                        <input type="text" id="username" name="username" placeholder="логин"><br><br>
+                        <input type="text" id="email" name = "email" placeholder="почта"><br><br>
                         <label for="form pass"></label>
-                        <input type="password" id="form-pass1" class="form-pass" placeholder="пароль"><br><br>
-                        <input type="password" id="form-pass2" class="form-pass" placeholder="подтвердите пароль"><br>
+                        <input type="password" id="form-pass1" name="password1" class="form-pass" placeholder="пароль"><br><br>
+                        <input type="password" id="form-pass2" name="password2" class="form-pass" placeholder="подтвердите пароль"><br>
                         <span class="pass-icon" id="pass-icon1"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
 
-                    </form>
+
                     <br>
                     <br>
-                    <a href="../UserProfile.html">
-                        <div class="button10">зарегистрироваться</div>
+                    <button type="submit">регистрация</button>
                     </a>
+                    </form>
                 </div>
             </div>
             <script>
@@ -68,7 +70,6 @@
                     }
                 });
             </script>
-
 
 
     </main>

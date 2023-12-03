@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
+from django.conf import settings
+
 
 
 class ingredient(models.Model):
@@ -59,6 +61,17 @@ class Recipe(models.Model):
         blank=True
     )
     cook_time = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
+
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

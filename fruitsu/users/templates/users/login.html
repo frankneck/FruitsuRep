@@ -24,7 +24,7 @@
             <a href="/../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="UserProfile.html"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
+                <a href="../login"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
             </div>
         </header>
 
@@ -32,23 +32,22 @@
             <div class="main-content">
                 <div class="auth">
                     <p>ВХОД</p><br><br><br>
-                    <form action="#">
+                    <form method="post">
+                        {% csrf_token %}
                         <label for="username"></label>
-                        <input type="text" id="username" placeholder="логин"><br><br>
-                        <label for="form pass"></label>
-                        <input type="password" id="form-pass" class="form-pass" placeholder="пароль">
+                        <input type="text" id="username" name="username" placeholder="логин"><br><br>
+                        <label for="password"></label>
+                        <input type="password" id="form-pass" name="pass" class="form-pass" placeholder="пароль">
                         <span class="pass-icon" id="pass-icon"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
 
+
+                        <br>
+                        <br>
+                        <button type="submit">ВОЙТИ</button>
                     </form>
-                    <br>
-                    <br>
-                    <a href="../UserProfile.html" style="text-decoration: none;">
-                    <div class="logbut">
-                        <div class="button10">Войти</div>
-                    </div>
                     </a>
                     <br>
-                    <a href="../registration.html">
+                    <a href="../register">
                         <div class="button10">Зарегистрироваться</div>
                     </a>
                 </div>
