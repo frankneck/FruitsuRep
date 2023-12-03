@@ -15,7 +15,7 @@ def register(request):
 
             my_user=User.objects.create_user(uname,email,pass1)
             my_user.save()
-            return redirect('../auth.html')
+            return redirect('../login')
 
         print(uname,email,pass1,pass2)
     return render(request, 'users/register.html')
@@ -27,7 +27,7 @@ def LoginPage(request):
         user = authenticate(request, username=username, password=pass1)
         if user is not None:
             login(request, user)
-            return redirect('../UserProfile.html')
+            return redirect('../UserProfile')
         else:
             return HttpResponse("Пароли не совпадают")
     return render(request, 'users/login.html')
