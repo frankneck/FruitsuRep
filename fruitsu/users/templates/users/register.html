@@ -21,31 +21,32 @@
 <body>
     <div class="body-container">
         <header class="site-header">
-            <a href="../"><img class="logo-icon" src="{% static 'main_app/img/logo.png'%}"/></a>
+            <div class="crop"><a href="../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a></div>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="../login/"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
+                <a href="../UserProfile"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
             </div>
         </header>
 
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
             <div class="main-content">
+                <div class="crutch"></div>
                 <div class="auth">
                     <p>РЕГИСТРАЦИЯ</p><br><br><br>
-                    <form action="" method="post">
+                    <form class="go" action="" method="post">
                         {% csrf_token %}
                         <label for="username"></label>
-                        <input type="text" id="username" name="username" placeholder="логин"><br><br>
-                        <input type="text" id="email" name = "email" placeholder="почта"><br><br>
+                        <input type="text" id="username" name="username" placeholder="Логин"><br><br>
+                        <input type="text" id="email" name = "email" placeholder="Почта"><br><br>
                         <label for="form pass"></label>
-                        <input type="password" id="form-pass1" name="password1" class="form-pass" placeholder="пароль"><br><br>
-                        <input type="password" id="form-pass2" name="password2" class="form-pass" placeholder="подтвердите пароль"><br>
+                        <input type="password" id="form-pass1" name="password1" class="form-pass" placeholder="Пароль"><br><br>
+                        <input type="password" id="form-pass2" name="password2" class="form-pass" placeholder="Подтвердите пароль"><br>
                         <span class="pass-icon" id="pass-icon1"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
 
 
                     <br>
                     <br>
-                    <button type="submit">регистрация</button>
+                    <div class="button10">Зарегистрироваться</div>
                     </a>
                     </form>
                 </div>
@@ -82,7 +83,7 @@
                 <p style="margin-left: 2vw; margin-top: 1vh; font-size: 3vw;"><3</p>
             </div>
             <div class="footer-content">
-                <p style="margin-bottom: 0.5vh; font-size: 1.9vw;"> Вот они слева направо: </p>
+                Вот они слева направо: <br>
                 • Григорий левин (Teamlead) <br>
                 • Амосова Алина (Designer) <br>
                 • Раскалиновский Владислав (Backend) <br>

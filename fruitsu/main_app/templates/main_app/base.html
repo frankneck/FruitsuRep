@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{% static 'main_app/css/styles.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'main_app/css/styles.css' %}" /> -->
+    <link rel="stylesheet" href="../../static/main_app/css/styles.css" />
     <title>Главная</title>
     <style>
    * {
@@ -19,7 +20,7 @@
 <body>
     <div class="body-container">
         <header class="site-header">
-            <a href="/../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png' %}"/></a>
+            <div class="crop"><a href="../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a></div>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
                 <a href="login/"><img class="user-icon" src="{% static 'main_app/img/user.png' %}" /></a>
@@ -28,21 +29,35 @@
 
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
             <div class="main-content">
+                <div class="crutch"></div>
                 <div class="showcase">
-                    <div class="poster">
-                        <img class="anime-poster" src="{% static 'main_app/img/Soma.jpg' %}"/>
+                    <a href="ListOfRecipes/" class="poster">
+                        <img  class="anime-poster" src="{% static 'main_app/img/Soma.jpg' %}"/>
                         Повар боец Сома
-                    </div>
-                    <div class="poster">
+                    </a>
+                    <a href="ListOfRecipes/" class="poster">
                         <img class="anime-poster" src="{% static 'main_app/img/Naruto.jpg' %}"/>
                         Наруто
-                    </div>
-                    <div class="poster">
+                    </a>
+                    <a href="ListOfRecipes/" class="poster">
                         <img class="anime-poster" src="{% static 'main_app/img/Stone.webp' %}"/>
                         Доктор стоун
-                    </div>
+                    </a>
+                    <a href="ListOfRecipes/" class="poster">
+                        <img class="anime-poster" src="{% static 'main_app/img/Soma.jpg' %}"/>
+                        Повар боец Сома
+                    </a>
+                    <a href="ListOfRecipes/" class="poster">
+                        <img class="anime-poster" src="{% static 'main_app/img/Naruto.jpg' %}"/>
+                        Наруто
+                    </a>
+                    <a href="ListOfRecipes/" class="poster">
+                        <img class="anime-poster" src="{% static 'main_app/img/Stone.webp' %}"/>
+                        Доктор стоун
+                    </a>
                 </div>
-            </div>
+                </div>
+    </div>
     </main>
 
     <footer class="site-footer">
@@ -52,7 +67,7 @@
                 <p style="margin-left: 2vw; margin-top: 1vh; font-size: 3vw;"><3</p>
             </div>
             <div class="footer-content">
-                <p style="margin-bottom: 0.5vh; font-size: 1.9vw;"> Вот они слева направо: </p>
+                Вот они слева направо: <br>
                 • Григорий левин (Teamlead) <br>
                 • Амосова Алина (Designer) <br>
                 • Раскалиновский Владислав (Backend) <br>

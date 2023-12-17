@@ -21,25 +21,26 @@
 <body>
     <div class="body-container">
         <header class="site-header">
-            <a href="Base.html"><img class="logo-icon" src="../../style/logo.png"/></a>
+            <div class="crop"><a href="../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a></div>
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="UserProfile.html"><img class="user-icon" src="../../style/user.png" /></a>
+                <a href="../UserProfile"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
             </div>
         </header>
 
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
         <div class="main-content">
+            <div class="crutch"></div>
             <div class="head-recipe">
-                <p style="margin-bottom: 2vh; font-size: 2vw;">Жареный лёд</p>
-                <img src="../../style/voda.jpg" style="width: 40vw; height: auto;">
+                Жареный лёд
+                <img class="anime-poster" src="{% static 'main_app/img/Stone.webp' %}"/>
             </div>
-            <p style="margin-bottom: 2vh; font-size: 2vw;">Ингредиенты:</p>
-            <ol class="spisok">
+            Ингредиенты:
+            <ol class="list">
                 1. Лёд
             </ol>
-            <p style="margin-bottom: 2vh; font-size: 2vw;">Шаги приготовления:</p>
-            <ol class="spisok">
+            Шаги приготовления:
+            <ol class="list">
                 1. Достаньте лёд из морозилки <br>
                 2. Разогрейте сковороду<br>
                 3. Выложите лёд<br>
@@ -57,7 +58,7 @@
                 <p style="margin-left: 2vw; margin-top: 1vh; font-size: 3vw;"><3</p>
             </div>
             <div class="footer-content">
-                <p style="margin-bottom: 0.5vh; font-size: 1.9vw;"> Вот они слева направо: </p>
+                Вот они слева направо: <br>
                 • Григорий левин (Teamlead) <br>
                 • Амосова Алина (Designer) <br>
                 • Раскалиновский Владислав (Backend) <br>
