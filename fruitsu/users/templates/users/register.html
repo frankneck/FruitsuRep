@@ -1,52 +1,22 @@
+{% extends 'users/osnova.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/styles.css' %}" />
-    <title>Регистрация</title>
-    <style>
-   * {
-    margin: 0;
-    padding: 0;
-   }
-   img {
-       border-radius: 6px;
-   }
-  </style>
-
-</head>
-<body>
-    <div class="body-container">
-        <header class="site-header">
-            <div class="crop"><a href="../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a></div>
-            <div class="right-buttons">
-                <input class="search"type="text" id="search" placeholder="Поиск">
-                <a href="../UserProfile"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
-            </div>
-        </header>
-
+{% block content %}
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
             <div class="main-content">
                 <div class="crutch"></div>
                 <div class="auth">
-                    <p>РЕГИСТРАЦИЯ</p><br><br><br>
+                    <p>РЕГИСТРАЦИЯ</p><br><br>
                     <form class="go" action="" method="post">
                         {% csrf_token %}
                         <label for="username"></label>
-                        <input type="text" id="username" name="username" placeholder="Логин"><br><br>
-                        <input type="text" id="email" name = "email" placeholder="Почта"><br><br>
+                        <input type="text" id="username" name="username" placeholder="Логин"><br>
+                        <input type="text" id="email" name = "email" placeholder="Почта"><br>
                         <label for="form pass"></label>
-                        <input type="password" id="form-pass1" name="password1" class="form-pass" placeholder="Пароль"><br><br>
-                        <input type="password" id="form-pass2" name="password2" class="form-pass" placeholder="Подтвердите пароль"><br>
+                        <input type="password" id="form-pass1" name="password1" class="form-pass" placeholder="Пароль"><br>
+                        <input type="password" id="form-pass2" name="password2" class="form-pass" placeholder="Подтвердите пароль">
                         <span class="pass-icon" id="pass-icon1"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
 
-
-                    <br>
-                    <br>
-                    <div class="button10">Зарегистрироваться</div>
+                    <button class="button10" type="submit">Зарегистрироваться</button>
                     </a>
                     </form>
                 </div>
@@ -74,23 +44,4 @@
 
 
     </main>
-
-    <div class="body-container">
-        <footer class="site-footer">
-            <div class="footer-content">
-                Данный проект реализован в рамках предмета "Програмная инженерия" самой позитивной командой "TheD".
-                При поддержке Скурского Степана Андреевича <br>
-                <p style="margin-left: 2vw; margin-top: 1vh; font-size: 3vw;"><3</p>
-            </div>
-            <div class="footer-content">
-                Вот они слева направо: <br>
-                • Григорий левин (Teamlead) <br>
-                • Амосова Алина (Designer) <br>
-                • Раскалиновский Владислав (Backend) <br>
-                • Зубков Андрей (Frontend)
-            </div>
-        </footer>
-    </div>
-    </div>
-</body>
-</html>
+{% endblock %}

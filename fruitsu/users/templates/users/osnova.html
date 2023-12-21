@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/styles.css' %}" />
+    <title>Регистрация</title>
+    <style>
+   * {
+    margin: 0;
+    padding: 0;
+   }
+   img {
+       border-radius: 6px;
+   }
+  </style>
+
+</head>
+<body>
+    <div class="body-container">
+        <header class="site-header">
+            <div class="crop"><a href="../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a></div>
+            <div class="right-buttons">
+                <input class="search"type="text" id="search" placeholder="Поиск">
+                <a href="../UserProfile"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
+            </div>
+        </header>
+
+    {% block content %}
+    {% endblock %}
+    <div class="body-container">
+        <footer class="site-footer">
+            <div class="footer-content">
+                Данный проект реализован в рамках предмета "Програмная инженерия" самой позитивной командой "TheD".
+                При поддержке Скурского Степана Андреевича <br>
+                <p style="margin-left: 2vw; margin-top: 1vh; font-size: 3vw;"><3</p>
+            </div>
+            <div class="footer-content">
+                Вот они слева направо: <br>
+                • Григорий левин (Teamlead) <br>
+                • Амосова Алина (Designer) <br>
+                • Раскалиновский Владислав (Backend) <br>
+                • Зубков Андрей (Frontend)
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>
+</html>

@@ -28,6 +28,6 @@ def LoginPage(request):
         if user is not None:
             login(request, user)
             return redirect('../UserProfile')
-        else:
-            return HttpResponse("Пароли не совпадают")
+        #else:
+           # return HttpResponse("Пароли не совпадают")
     return render(request, 'users/login.html')
