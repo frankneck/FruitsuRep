@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from .forms import UserRegisterForm
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+
+
 def register(request):
     if request.method == 'POST':
         uname=request.POST.get('username')
@@ -31,3 +33,10 @@ def LoginPage(request):
         #else:
            # return HttpResponse("Пароли не совпадают")
     return render(request, 'users/login.html')
+
+def LogoutPage(request):
+    logout(request)
+    return redirect('../login')
+
+def UserProfile(request):
+    return render(request, 'users/UserProfile.html')

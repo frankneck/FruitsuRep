@@ -18,8 +18,6 @@ def pageNotFound(request, exception):
 def registration(request):
     return render(request, 'main_app/registration.html')
 
-def UserProfile(request):
-    return render(request, 'main_app/UserProfile.html')
 
 def home(request):
     context = {
