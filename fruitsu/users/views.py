@@ -30,9 +30,12 @@ def LoginPage(request):
         if user is not None:
             login(request, user)
             return redirect('../UserProfile')
-        #else:
-           # return HttpResponse("Пароли не совпадают")
+        else:
+           messages.success(request, "Неверный логин или пароль")
+           return redirect('../login')
     return render(request, 'users/login.html')
+
+
 
 def LogoutPage(request):
     logout(request)
