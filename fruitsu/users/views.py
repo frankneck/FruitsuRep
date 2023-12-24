@@ -31,7 +31,7 @@ def LoginPage(request):
             login(request, user)
             return redirect('../UserProfile')
         else:
-           messages.success(request, "Неверный логин или пароль")
+           messages.error(request, "Неверный логин или пароль")
            return redirect('../login')
     return render(request, 'users/login.html')
 
@@ -39,6 +39,7 @@ def LoginPage(request):
 
 def LogoutPage(request):
     logout(request)
+    messages.success(request, "Успешный выход из профиля")
     return redirect('../login')
 
 def UserProfile(request):
