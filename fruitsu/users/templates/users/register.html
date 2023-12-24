@@ -1,21 +1,26 @@
 {% extends 'users/osnova.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
             <div class="main-content">
+
                 <div class="crutch"></div>
                 <div class="auth">
-                    <p>РЕГИСТРАЦИЯ</p><br><br>
+
+                    <p>РЕГИСТРАЦИЯ</p><br>
+
+                    {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                     <form class="go" action="" method="post">
                         {% csrf_token %}
-                        <label for="username"></label>
-                        <input type="text" id="username" name="username" placeholder="Логин"><br>
-                        <input type="text" id="email" name = "email" placeholder="Почта"><br>
-                        <label for="form pass"></label>
-                        <input type="password" id="form-pass1" name="password1" class="form-pass" placeholder="Пароль"><br>
-                        <input type="password" id="form-pass2" name="password2" class="form-pass" placeholder="Подтвердите пароль">
+                        {{ form|crispy }}
                         <span class="pass-icon" id="pass-icon1"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
-
                     <button class="button10" type="submit">Зарегистрироваться</button>
                     </a>
                     </form>

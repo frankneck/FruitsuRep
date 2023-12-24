@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'main_app.apps.MainAppConfig',
 
     'mptt',
+    'bootstrap4',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -142,4 +144,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CSRF_TRUSTED_ORIGINS=["http://127.0.0.1:8000/register.html"]
+
+#Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = 'fruitsurep@gmail.com'
+EMAIL_HOST_USER = 'fruitsurep@gmail.com'
+EMAIL_HOST_PASSWORD = 'idud betm mpop ughs'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+PASSWORD_RESET_TIMEOUT = 14400
 

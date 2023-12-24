@@ -2,6 +2,13 @@
 {% load static %}
 {% block content %}
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
+    {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
             <div class="main-content">
                 <div class="crutch"></div>
                 <div class="showcase">
