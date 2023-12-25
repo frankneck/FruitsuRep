@@ -26,27 +26,6 @@
                     </form>
                 </div>
             </div>
-            <script>
-                const inputPass = document.getElementById('form-pass1')
-                const iconPass = document.getElementById('pass-icon1')
-                iconPass.addEventListener('click', () => {
-                    if (inputPass.getAttribute('type') === "password") {
-                        inputPass.setAttribute('type', 'text');
-                    } else {
-                        inputPass.setAttribute('type', 'password');
-                    }
-                });
-                const inputPass1 = document.getElementById('form-pass2')
-                const iconPass1 = document.getElementById('pass-icon2')
-                iconPass.addEventListener('click', () => {
-                    if (inputPass1.getAttribute('type') === "password") {
-                        inputPass1.setAttribute('type', 'text');
-                    } else {
-                        inputPass1.setAttribute('type', 'password');
-                    }
-                });
-            </script>
-
 
     </main>
 {% endblock %}

@@ -93,7 +93,7 @@ def LoginPage(request):
             login(request, user)
             return redirect('../UserProfile')
         else:
-           messages.error(request, "Неверный логин или пароль")
+           #messages.error(request, "Неверный логин или пароль")
            return redirect('../login')
     return render(request, 'users/login.html')
 
