@@ -1,5 +1,9 @@
 /*          Header            */
 
+html {
+    overflow-x: hidden;
+}
+
 .site-header {
     background-color: #494E62;
     height: 60px;
@@ -76,8 +80,7 @@ input {
 }
 
 .main-content {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 40px 50px;
     background: white;
     display: flex;
     justify-content: space-between;
@@ -85,6 +88,27 @@ input {
     align-items: center;
     font-family: Arial;
     font-size: 40px;
+}
+
+.helptext span {
+    margin-left: 80px;
+}
+
+.helptext li{
+    padding-bottom: 10px;
+    color: #6e6b6b;
+    font-style: italic;
+    font-size: 32px;
+}
+
+.helptext ul{
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+#id_email {
+    height: 50px;
+    border-radius: 7px;
 }
 
 img {
@@ -337,9 +361,13 @@ p {
 }
 
 .auth input{
-    width: 100%;
+    width: 70%;
     margin-bottom: 20px;
     user-select: none;
+}
+
+.form-control {
+    width: 70%;
 }
 
 .auth input[type="text"], input[type="password"] {

@@ -60,13 +60,13 @@ def register(request):
         else:
             for error in list(form.errors.values()):
                 print(request, error)
-       # uname=request.POST.get('username')
-        #email = request.POST.get('email')
-       # pass1 = request.POST.get('password1')
-       # pass2 = request.POST.get('password2')
-       # if pass1!=pass2:
-         #   messages.error(request, "Пароли не совпадают")
-          #  return redirect('../register')
+        # uname=request.POST.get('username')
+        # email = request.POST.get('email')
+        # pass1 = request.POST.get('password1')
+        # pass2 = request.POST.get('password2')
+        # if pass1!=pass2:
+        # messages.error(request, "Пароли не совпадают")
+        # return redirect('../register')
     else:
          form = UserRegistrationForm()
 
@@ -75,14 +75,14 @@ def register(request):
         template_name= "users/register.html",
         context={"form": form}
     )
-           # user = form.save(commit=False)
-           # user=User.objects.create_user(uname,email,pass1)
-           # user.is_active=False
-           # activateEmail(request, user, email)
-            #return redirect('../login')
+        # user = form.save(commit=False)
+        # user=User.objects.create_user(uname,email,pass1)
+        # user.is_active=False
+        # activateEmail(request, user, email)
+        # return redirect('../login')
 
-       # print(uname,email,pass1,pass2)
-   # return render(request, 'users/register.html')
+        # print(uname,email,pass1,pass2)
+        # return render(request, 'users/register.html')
 
 def LoginPage(request):
     if request.method=='POST':
@@ -93,7 +93,7 @@ def LoginPage(request):
             login(request, user)
             return redirect('../UserProfile')
         else:
-           #messages.error(request, "Неверный логин или пароль")
+        # messages.error(request, "Неверный логин или пароль")
            return redirect('../login')
     return render(request, 'users/login.html')
 

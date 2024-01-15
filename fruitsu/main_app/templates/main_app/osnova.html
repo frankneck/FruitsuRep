@@ -1,8 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/styles.css' %}" />
@@ -16,10 +16,10 @@
        border-radius: 6px;
    }
   </style>
-
 </head>
+
 <body>
-    <div class="body-container">
+    <div class="body-container">  
         <header class="site-header">
             <div class="crop"><a href="../"><img class="logo-icon" src="{% static 'main_app/img/Logo.png'%}"/></a></div>
             <div class="right-buttons">
@@ -34,6 +34,7 @@
 
     {% block content %}
     {% endblock %}
+    
     <div class="body-container">
         <footer class="site-footer">
             <div class="footer-content">
@@ -48,6 +49,7 @@
                 • Раскалиновский Владислав (Backend) <br>
                 • Зубков Андрей (Frontend)
             </div>
+
         </footer>
     </div>
     </div>

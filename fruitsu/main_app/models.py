@@ -4,13 +4,9 @@ from mptt.models import MPTTModel, TreeForeignKey
 from django.conf import settings
 
 
-
 class ingredient(models.Model):
     title = models.CharField(max_length=100)
     quantity = models.PositiveIntegerField(default=1)
-
-
-# class Ingredients(models.Model):
 
 class Category(MPTTModel):
     title = models.CharField(max_length=60)
@@ -31,9 +27,6 @@ class Step(models.Model):
     number_of_step = models.PositiveIntegerField(default=1)
     description = models.TextField()
     image_of_step = models.ImageField(upload_to='image_of_step/', blank=True)
-
-
-# class Direction(models.Model):
 
 
 class MPTTMeta:
@@ -65,7 +58,7 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
-
+# TO DO class Direction(models.Model):
 
 
 class Post(models.Model):
