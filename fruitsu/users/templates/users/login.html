@@ -5,34 +5,37 @@
             <div class="main-content">
                 <div class="crutch"></div>
                 <div class="auth">
-                    <p>ВХОД</p><br>
+                    <p>ВХОД</p> <br>
                 {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                     {% endfor %}
                 </ul>
-                {% endif %}<br>
+                {% endif %}
                     <form class="go" method="post">
                         {% csrf_token %}
                     <div class="form-error">{{ form.non_field_errors }}</div>
+                    <div class="login">
                         <label for="username"></label>
-                        <input type="text" id="username" name="username" placeholder="Логин"><br>
-                        <label for="password"></label>
-                        <input type="password" id="form-pass" name="pass" class="form-pass" placeholder="Пароль">
-                        <span class="pass-icon" id="pass-icon"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
-
-
-                        <br>
-<div class="form-error">{{ form.non_field_errors }}</div>
-{% for f in form %}
-<p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}:</label>{{ f }}</p>
-<div class="form-error">{{ f.errors }}</div>
-{% endfor %}
+                        <input type="text" id="username" name="username" placeholder="Логин">
+                        <div>
+                            <input type="password" id="form-pass" name="pass" class="form-pass" placeholder="Пароль">
+                            <span class="pass-icon" id="pass-icon"><img src="{% static 'main_app/img/passeye.png'%}" style="width: 20px; height: 20px; margin-left: -42px"> </span>
+                        </div>
+                    </div>
+                    <div class="form-error">
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% for f in form %}
+                    <p> <label class="form-label" for= "{{ f.id_for_label }}" >
+                        {{ f.label }}:</label>{{ f }}
+                    </p>
+                    <div class="form-error">{{ f.errors }}</div>
+                    {% endfor %}
                         <button class="button10" type="submit">Войти</button>
                     </form>
                     </a>
-                    <br>
                     <a href="../register">
                         <div class="button10">Зарегистрироваться</div>
                     </a>
@@ -49,8 +52,5 @@
                     }
                 });
             </script>
-
-
-
     </main>
 {% endblock %}

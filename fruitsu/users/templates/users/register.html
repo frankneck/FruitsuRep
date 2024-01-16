@@ -14,18 +14,20 @@
 
                 <br>
 
-                {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
+
                 <form class="go" action="" method="post">
                     {% csrf_token %}
-                    {{ form }}
-                    {% render_field form.password2 class="auth" %}
-                    <span class="pass-icon" id="pass-icon1"><img src="{% static 'main_app/img/passeye.png'%}" style="width:20px;height:20px"></span>
+                    {% render_field form.username placeholder="Имя пользователя" %}
+                    {% render_field form.email placeholder="Почта" %}
+                    {% render_field form.password1 placeholder="Пароль" type="password" %}
+                    {% render_field form.password2 placeholder="Подтвердите пароль" type="password" %}
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                     <button class="button10" type="submit">Зарегистрироваться</button>
                 </form>
             </div>

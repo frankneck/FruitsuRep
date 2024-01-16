@@ -6,7 +6,11 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class UserRegistrationForm(UserCreationForm):
-    email = forms.EmailField(help_text="ваш адрес", required=True)
+    email = forms.EmailField(help_text="", required=True)
+    username = forms.CharField(help_text="", required=True)
+    password1 = forms.CharField(help_text="", required=True)
+    password2 = forms.CharField(help_text="", required=True)
+
 
     class Meta:
         model = get_user_model()

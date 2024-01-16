@@ -33,18 +33,10 @@ class MPTTMeta:
     order_insertion_by = ['name']
 
 
-class Compound(models.Model):
-    proteins = models.FloatField(default=0)
-    fats = models.FloatField(default=0)
-    carbohydrates = models.FloatField(default=0)
-    calories = models.FloatField(default=0)
-
-
 class Recipe(models.Model):
     title = models.CharField(max_length=100)
     img = models.ImageField(upload_to="recipe_photos/", blank=True)
     complexity = models.CharField(max_length=100)
-    author = models.ForeignKey(User, related_name='recipes', on_delete=models.CASCADE)
     anime_title = models.CharField(max_length=100)
     category = models.ForeignKey(
         Category,

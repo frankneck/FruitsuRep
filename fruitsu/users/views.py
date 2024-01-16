@@ -30,7 +30,6 @@ def activate(request, uidb64, token):
     return redirect('../../login')
 
 
-
 def activateEmail(request, user, to_email):
     mail_subject = "Activate your user account"
     message = render_to_string("users/activatemail.html", {
@@ -45,6 +44,8 @@ def activateEmail(request, user, to_email):
         messages.success(request, "Подтвердите почту")
     else:
         messages.error(request, "Проверьте, правильно ли вы ввели почтовый адрес")
+
+
 def register(request):
     if request.user.is_authenticated:
         return redirect('/')
@@ -60,13 +61,7 @@ def register(request):
         else:
             for error in list(form.errors.values()):
                 print(request, error)
-        # uname=request.POST.get('username')
-        # email = request.POST.get('email')
-        # pass1 = request.POST.get('password1')
-        # pass2 = request.POST.get('password2')
-        # if pass1!=pass2:
-        # messages.error(request, "Пароли не совпадают")
-        # return redirect('../register')
+            messages.error(request, "Проверьте точность введеных данных")
     else:
          form = UserRegistrationForm()
 
@@ -75,14 +70,7 @@ def register(request):
         template_name= "users/register.html",
         context={"form": form}
     )
-        # user = form.save(commit=False)
-        # user=User.objects.create_user(uname,email,pass1)
-        # user.is_active=False
-        # activateEmail(request, user, email)
-        # return redirect('../login')
 
-        # print(uname,email,pass1,pass2)
-        # return render(request, 'users/register.html')
 
 def LoginPage(request):
     if request.method=='POST':
@@ -96,7 +84,6 @@ def LoginPage(request):
         # messages.error(request, "Неверный логин или пароль")
            return redirect('../login')
     return render(request, 'users/login.html')
-
 
 
 def LogoutPage(request):
