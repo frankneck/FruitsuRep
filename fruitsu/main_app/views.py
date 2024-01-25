@@ -13,7 +13,8 @@ def auth(request):
 
 
 def pageNotFound(request, exception):
-    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
+    return render(request, 'main_app/404.html')
+
 
 def registration(request):
     return render(request, 'main_app/registration.html')
@@ -25,17 +26,18 @@ def home(request):
     }
     return render(request, 'blog/home.html', context)
 
+
 def EmptyPage(request):
     return render(request, 'main_app/EmptyPage.html')
+
 
 def Recipe(request):
     return render(request, 'main_app/Recipe.html')
 
+
 def ListOfRecipes(request):
     return render(request, 'main_app/ListOfRecipes.html')
 
+
 def about(request):
     return render(request, 'blog/about.html', {'title': 'О клубе Python Bytes'})
-
-
-
