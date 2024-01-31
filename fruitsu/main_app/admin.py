@@ -8,5 +8,3 @@ from .models import Recipe, Ingredient, Step
 admin.site.register(models.Category, MPTTModelAdmin)
 admin.site.register(models.Recipe)
 admin.site.register(Post)
-
-

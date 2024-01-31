@@ -53,7 +53,7 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active=False
+            user.is_active = False
             user.save()
             activateEmail(request, user, form.cleaned_data.get('email'))
             login(request, user)
@@ -63,17 +63,17 @@ def register(request):
                 print(request, error)
             messages.error(request, "Проверьте точность введеных данных")
     else:
-         form = UserRegistrationForm()
+        form = UserRegistrationForm()
 
     return render(
         request=request,
-        template_name= "users/register.html",
-        context={"form": form}
+        template_name="users/register.html",
+        context={"form": form, 'title': 'Регистрация'}
     )
 
 
 def LoginPage(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         username = request.POST.get('username')
         pass1 = request.POST.get('pass')
         user = authenticate(request, username=username, password=pass1)
@@ -81,9 +81,9 @@ def LoginPage(request):
             login(request, user)
             return redirect('../UserProfile')
         else:
-        # messages.error(request, "Неверный логин или пароль")
-           return redirect('../login')
-    return render(request, 'users/login.html')
+            # messages.error(request, "Неверный логин или пароль")
+            return redirect('../login')
+    return render(request, 'users/login.html', {'title': 'Вход'})
 
 
 def LogoutPage(request):
@@ -91,5 +91,6 @@ def LogoutPage(request):
     messages.success(request, "Успешный выход из профиля")
     return redirect('../login')
 
+
 def UserProfile(request):
-    return render(request, 'users/UserProfile.html')
+    return render(request, 'users/UserProfile.html', {'title: Профиль пользователя  '})

@@ -3,13 +3,12 @@ from django.shortcuts import render
 from django.template import loader
 from .models import Post
 
-
 def index(request):
-    return render(request, 'main_app/base.html')
+    return render(request, 'main_app/base.html', {'title': 'Главная страница'})
 
 
 def auth(request):
-    return render(request, 'main_app/auth.html')
+    return render(request, 'main_app/auth.html', {'title': 'Войти'})
 
 
 def pageNotFound(request, exception):
@@ -17,7 +16,7 @@ def pageNotFound(request, exception):
 
 
 def registration(request):
-    return render(request, 'main_app/registration.html')
+    return render(request, 'main_app/registration.html', {'title': 'Регистрация'})
 
 
 def home(request):
@@ -32,12 +31,8 @@ def EmptyPage(request):
 
 
 def Recipe(request):
-    return render(request, 'main_app/Recipe.html')
+    return render(request, 'main_app/Recipe.html', {'title': 'Блюдо'})
 
 
 def ListOfRecipes(request):
-    return render(request, 'main_app/ListOfRecipes.html')
-
-
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'О клубе Python Bytes'})
+    return render(request, 'main_app/ListOfRecipes.html', {'title': 'Список блюд'})

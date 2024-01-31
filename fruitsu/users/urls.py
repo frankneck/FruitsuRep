@@ -8,5 +8,4 @@ urlpatterns = [
     path('logout/', LogoutPage),
     path('UserProfile/', UserProfile),
     path('activate/<uidb64>/<token>', activate, name='activate'),
-
 ]
