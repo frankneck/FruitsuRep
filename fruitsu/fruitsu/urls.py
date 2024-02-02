@@ -13,6 +13,7 @@ urlpatterns = [
     path('', include('main_app.urls')),
     path('register/', user_views.register, name='register'),
     path('', include('users.urls')),
+    path('UserProfile/', profile),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

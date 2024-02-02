@@ -1,10 +1,10 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.conf import settings
 
-
+User = get_user_model()
 class Ingredient(models.Model):
     name = models.CharField(max_length=255, default='Default Name')
     quantity = models.PositiveIntegerField(default=0)

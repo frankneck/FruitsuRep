@@ -10,7 +10,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.core.mail import EmailMessage
 from django.contrib.auth import get_user_model
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, UserUpdateForm
 
 
 def activate(request, uidb64, token):
@@ -79,9 +79,10 @@ def LoginPage(request):
         user = authenticate(request, username=username, password=pass1)
         if user is not None:
             login(request, user)
-            return redirect('../UserProfile')
+            messages.success(request, "Успешный вход в профиль")
+            return redirect('../')
         else:
-        # messages.error(request, "Неверный логин или пароль")
+           messages.error(request, "Неверный логин или пароль")
            return redirect('../login')
     return render(request, 'users/login.html')
 
@@ -91,5 +92,24 @@ def LogoutPage(request):
     messages.success(request, "Успешный выход из профиля")
     return redirect('../login')
 
-def UserProfile(request):
-    return render(request, 'users/UserProfile.html')
+
+def profile(request, username):
+    if request.method == 'POST':
+        user = request.user
+        form = UserUpdateForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            user_form = form.save()
+            messages.success(request, f'{user_form.username}, Ваш профиль обновлен!')
+
+        for error in list(form.errors.values()):
+            messages.error(request, error)
+
+    user = get_user_model().objects.filter(username=username).first()
+    if user:
+        form = UserUpdateForm(instance=user)
+        return render(
+            request=request,
+            template_name="users/UserProfile.html",
+            context={"form": form}
+        )
+    return redirect("UserProfile")
