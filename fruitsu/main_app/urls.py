@@ -7,4 +7,5 @@ urlpatterns = [
     path('EmptyPage/', EmptyPage),
     path('Recipe/', Recipe),
     path('ListOfRecipes/', ListOfRecipes),
+
 ]

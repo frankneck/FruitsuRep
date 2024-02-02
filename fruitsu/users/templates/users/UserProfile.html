@@ -1,17 +1,41 @@
-{% extends 'main_app/osnova.html' %}
+{% extends 'users/osnova.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
         <div class="main-content">
+         {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="user">
-                <img class="profile-icon" draggable="false" src="{% static 'main_app/img/ZeroTwo.jpg'%}" />
-                <div class="Nickname">ZeroTwoBestWaifu</div>
+                <h2 class="Nickname">{{ form.instance.username }}
+                </h2>
+                <p>{{ form.instance.email }}</p>
+                <p>{{ form.instance.description }}</p>
             </div>
+            {% if user.username == form.instance.username %}
+            <fieldset>
+                <h2>Изменить информарцию профиля</h2>
+                {{ form.email|as_crispy_field }}
+                {{ form.description|as_crispy_field }}
+            </fieldset>
+            <div>
+                <button class="button10" type="submit">Обновить</button>
+            </div>
+            {% endif %}
             <div class="urls">
                 <a class="url-box" href="">Мои рецепты</a>
                 <a class="url-box" href="">Избранное</a>
             </div>
             <a class="url-box" href="../logout" style="background-color: #FFC0CB">Выйти из профиля</a>
+
+        </form>
         </div>
     </main>
 {% endblock %}
