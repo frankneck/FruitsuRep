@@ -1,43 +1,48 @@
-{% extends 'main_app/osnova.html' %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'main_app/css/styles.css' %}"/>
+    <title>{{title}}</title>
+</head>
+
+<body>
+<header class="site-header">
+    <id class="header-item">
+        <a href="../"><img src="{% static 'main_app/img/Logo.png'%}"/></a>
+    </id>
+    <id class="header-item">
+        <div class="right-buttons">
+            <a href="../"><img src="{% static 'main_app/img/favorites.png'%}"/></a>
+            {% if request.user.is_authenticated %}
+            <a href="../UserProfile">
+                <img src="{% static 'main_app/img/user.png'%}"/>
+            </a>
+            {% else %}
+            <a href="../login">
+                <img src="{% static 'main_app/img/user.png'%}"/>
+            </a>
+            {% endif %}
+            <input class="search" type="text" id="search" placeholder="Найти">
+        </div>
+    </id>
+</header>
+
+<main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})">
 {% block content %}
-    <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
-    {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            <div class="main-content">
-                <div class="crutch"></div>
-                <div class="showcase">
-                    <a href="ListOfRecipes/" class="poster">
-                        <img  class="anime-poster" src="{% static 'main_app/img/Soma.jpg' %}"/>
-                        Повар боец Сома
-                    </a>
-                    <a href="ListOfRecipes/" class="poster">
-                        <img class="anime-poster" src="{% static 'main_app/img/Naruto.jpg' %}"/>
-                        Наруто
-                    </a>
-                    <a href="ListOfRecipes/" class="poster">
-                        <img class="anime-poster" src="{% static 'main_app/img/Stone.webp' %}"/>
-                        Доктор стоун
-                    </a>
-                    <a href="ListOfRecipes/" class="poster">
-                        <img class="anime-poster" src="{% static 'main_app/img/Soma.jpg' %}"/>
-                        Повар боец Сома
-                    </a>
-                    <a href="ListOfRecipes/" class="poster">
-                        <img class="anime-poster" src="{% static 'main_app/img/Naruto.jpg' %}"/>
-                        Наруто
-                    </a>
-                    <a href="ListOfRecipes/" class="poster">
-                        <img class="anime-poster" src="{% static 'main_app/img/Stone.webp' %}"/>
-                        Доктор стоун
-                    </a>
-                </div>
-                </div>
-    </div>
-    </main>
 {% endblock %}
+</main>
+
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <ul class="about us">
+            <a><img src="{% static 'main_app/img/vk_icon.png'%}"/></a>
+            <a><img src="{% static 'main_app/img/telegram_icon.png'%}"/></a>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

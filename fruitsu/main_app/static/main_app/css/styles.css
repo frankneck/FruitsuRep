@@ -1,112 +1,55 @@
-/*          Header            */
-
-html {
-    overflow-x: hidden;
+body {
+    display: block;
+    margin: 0px;
 }
 
-ul {
-    list-style: none;
-}
-
+/* Шапка */
 .site-header {
     background-color: #494E62;
-    height: 60px;
     display: flex;
+    height: 47px;
+    align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
 }
 
-.crop {
-    margin-left: 20px;
+.site-header a img {
+    width: auto;
+    height: 35px;
 }
 
 .right-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-content: center;
-    margin-right: 20px;
+    align-items: center;
 }
 
 .search {
-    height: 50px;
-    width: 400px;
+    height: 35px;
+    width: 260px;
     border: none;
     border-radius: 8px;
-    font-size: 30px;
+    font-size: 20px
 }
 
 input {
     padding-left: 15px;
 }
 
-.user-icon {
-    height: 50px;
-}
-
-@media (max-width: 800px) {
-    .search {
-        width: 250px;
-    }
-}
-
-@media (max-width: 550px) {
-    .crop {
-        width: 32px;
-        overflow: hidden
-    }
-    .crop {
-        margin-left: 5vw;
-    }
-    .right-buttons {
-        margin-right: 8vw;
-    }
-    .search {
-        width: 58vw;
-        margin-right: 3vw;
-    }
-}
-
-/*          General structure            */
-
-.body-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
+/* Основная структура */
 
 .main-container {
     background-size: 15%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .main-content {
-    padding: 40px 0;
-    background: white;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial;
-    font-size: 40px;
-}
-
-.helptext span {
-    margin-left: 80px;
-}
-
-.helptext li{
-    padding-bottom: 10px;
-    color: #6e6b6b;
-    font-style: italic;
-    font-size: 32px;
-}
-
-.helptext ul{
-    margin: 40px 0;
+    background: #FFC0CB;
+    width: 1402px; 
+    height: 1920px;
+    align-self: center;
 }
 
 .error {
@@ -116,41 +59,7 @@ input {
     font-size: 50%;
 }
 
-#id_email {
-    height: 50px;
-    border-radius: 7px;
-}
-
-img {
-    max-height: 80%
-}
-
-@media (max-width: 1920px) {
-    .main-container {
-        background-size: 20%;
-    }
-}
-
-@media (max-width: 800px) {
-    .main-container {
-        background-size: 50%;
-    }
-}
-
-@media (max-width: 550px) {
-    .crutch {
-        width: 100vw;
-    }
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-
-/*          Footer            */
-
+/* Подвал */
 .site-footer {
     background-color: #494E62;
     display: flex;
@@ -167,18 +76,7 @@ a {
     width: 40vw;
 }
 
-@media (max-width: 550px) {
-    .site-footer {
-        height: 420px;
-    }
-    .footer-content {
-        font-size: 20px;
-    }
-}
-
-
-/*          UserProfile            */
-
+/* Профиль пользователя */
 .user {
     display: flex;
     flex-direction: column;
@@ -229,29 +127,182 @@ a {
   box-shadow: inset 0 -1px 1px rgba(0,0,0,0), inset 0 1px 2px rgba(0,0,0,0), inset 0 0 0 100px rgba(128, 125, 125, 0.5);
 }
 
-@media (max-width: 1920px) {
-    .profile-icon {
-        width: 400px;
-        height: 400px;
-    }
-    .user {
-        height: 550px;
-    }
-    .Nickname {
-        height: 15px;
-        width: 400px;
-        font-size: 40px;
-        padding: 30px;
-    }
-    .urls {
-        margin-bottom: 90px;
-        width: 800px;
-    }
-    .url-box {
-        font-size: 35px;
-        padding: 30px;
-    }
+/* Основные */
 
+.anime-poster {
+    height: 450px;
+    width: 300px;
+    padding-bottom: 30px;
+}
+
+/* Аутентификация и регистрация */
+.auth {
+    background-size: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3vh;
+}
+
+.button10 {
+    display: inline-block;
+    font-size: 80%;
+    border: none;
+    font-family: cursive;
+    text-decoration: none;
+    margin-right: 45px;
+    margin-left: 45px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: .25em .5em;
+    outline: none;
+    border-radius: 7px;
+    background: #D3D3D3;
+    color: black;
+}
+
+.go {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button10:hover {
+    box-shadow: inset 0 -1px 1px rgba(0,0,0,0), inset 0 1px 2px rgba(0,0,0,0), inset 0 0 0 60px rgba(128, 125, 125, 0.5);
+}
+
+p {
+    font-size: 40px;
+    font-family: cursive;
+    font-weight: 900;
+}
+
+.logbut {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    margine-bottom: 20px
+}
+
+.login {
+    width: 100%;
+    margin-left: 100px;
+}
+
+.auth input {
+    width: 70%;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.form-control {
+    width: 70%;
+}
+
+.auth input[type="text"], input[type="password"] {
+    outline: none;
+    background: transparent;
+    border-radius: 7px;
+    border-color: #565151;
+    color: #380a0a;
+    height: 40px;
+    font-size: 25px;
+}
+
+.pass-icon {
+    cursor: pointer;
+}
+
+.auth{
+margin-top: 15px;
+margin-bottom: 100px;
+}
+
+
+
+/* Рецепт */
+.head-recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    padding-bottom: 10vh;
+}
+
+.spisok {
+    font-size: 1.5vw;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 200px;
+    width: 1200px;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    font-size: 25px;
+    color: black;
+    overflow: hidden;
+}
+
+.Head {
+    font-family: Arial;
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: black;
+}
+
+@media (max-width: 1920px) {
+    .head-recipe {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 800px) {
+    .head-recipe {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 550px) {
+    .line {
+        width: 96vw;
+    }
+    .Head {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .description {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 550px) {
+    .crutch {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .button10 {
+        font-size: 30px;
+        padding: 20px;
+    }
 }
 
 @media (max-width: 550px) {
@@ -277,32 +328,49 @@ a {
     }
 }
 
-
-
-/*          Base            */
-
-.poster {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Arial';
-    font-weight: bold;
-    margin-right: 5vh;
-    margin-left: 5vh;
+@media (max-width: 1920px) {
+    .profile-icon {
+        width: 400px;
+        height: 400px;
+    }
+    .user {
+        height: 550px;
+    }
+    .Nickname {
+        height: 15px;
+        width: 400px;
+        font-size: 40px;
+        padding: 30px;
+    }
+    .urls {
+        margin-bottom: 90px;
+        width: 800px;
+    }
+    .url-box {
+        font-size: 35px;
+        padding: 30px;
+    }
 }
 
-.anime-poster {
-    height: 450px;
-    width: 300px;
-    padding-bottom: 30px;
+@media (max-width: 550px) {
+    .site-footer {
+        height: 420px;
+    }
+    .footer-content {
+        font-size: 20px;
+    }
 }
 
-.showcase {
-    width: 70vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    flex-direction: row;
+@media (max-width: 1920px) {
+    .main-container {
+        background-size: 20%;
+    }
+}
+
+@media (max-width: 800px) {
+    .main-container {
+        background-size: 50%;
+    }
 }
 
 @media (max-width: 550px) {
@@ -311,215 +379,21 @@ a {
     }
 }
 
-
-
-/*          Auth & Registration            */
-
-.auth {
-    background-size: 25%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 3vh;
-}
-
-.button10 {
-  display: inline-block;
-  font-size: 80%;
-  border: none;
-  font-family: cursive;
-  text-decoration: none;
-  margin-right: 45px;
-  margin-left: 45px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding: .25em .5em;
-  outline: none;
-  border-radius: 7px;
-  background: #D3D3D3;
-  color: black;
-}
-
-.go {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.button10:hover {
-  box-shadow: inset 0 -1px 1px rgba(0,0,0,0), inset 0 1px 2px rgba(0,0,0,0), inset 0 0 0 60px rgba(128, 125, 125, 0.5);
-}
-
-p {
-  font-size: 40px;
-  font-family: cursive;
-  font-weight: 900;
-}
-
-.logbut {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-right: auto;
-    margin-left: auto;
-    margine-bottom: 20px
-}
-
-.login {
-    width: 100%;
-    margin-left: 100px;
-}
-
-.auth input{
-    width: 70%;
-    margin-bottom: 20px;
-    user-select: none;
-}
-
-.form-control {
-    width: 70%;
-}
-
-.auth input[type="text"], input[type="password"] {
-    outline: none;
-    background: transparent;
-    border-radius: 7px;
-    border-color: #565151;
-    color: #380a0a;
-    height: 40px;
-    font-size: 25px;
-}
-.pass-icon {
-    cursor: pointer;
-}
-
-.go {
-}
-
-.auth{
-margin-top: 15px;
-margin-bottom: 100px;
-}
-
-@media (max-width: 550px) {
-    .button10 {
-        font-size: 30px;
-        padding: 20px;
-    }
-}
-
-
-/*          Auth & Registration            */
-.head-recipe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50vw;
-    padding-bottom: 10vh;
-}
-
-.spisok {
-    font-size: 1.5vw;
-}
-
-
-
-/*          Recipe            */
-.head-recipe{
-    font-family: Arial;
-    font-size: 80px;
-    padding: 0;
-}
-
-.list {
-    font-size: 20px;
-}
-
-@media (max-width: 1920px) {
-    .head-recipe {
-        font-size: 60px;
-    }
-}
-
 @media (max-width: 800px) {
-    .head-recipe {
-        font-size: 40px;
-    }
-}
-
-
-/*          Recipe            */
-.line {
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    margin: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 200px;
-    width: 1200px;
-    border: 2px solid grey;
-    border-radius: 10px;
-    img {
-        max-height: 100%
-    }
-}
-
-.description {
-    display: flex;
-    flex-direction: column;
-    padding-left: 30px;
-    font-size: 25px;
-    color: black;
-    overflow: hidden
-}
-
-.Head {
-    font-family: Arial;
-    font-size: 50px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    color: black;
-}
-
-@media (max-width: 1920px) {
-    .line {
-        width: 800px;
-    }
-    .description {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 800px) {
-    .line {
-        width: 550px;
-        img {
-            max-height: 80%
-        }
-    }
-    .Head {
-        font-size: 40px;
-        margin-bottom: 10px;
-    }
-    .description {
-        font-size: 18px;
+    .search {
+        width: 250px;
     }
 }
 
 @media (max-width: 550px) {
-    .line {
-        width: 96vw;
-        img {
-            max-height: 60%
-        }
+    .crop {
+        margin-left: 5vw;
     }
-    .Head {
-        font-size: 30px;
-        margin-bottom: 10px;
+    .right-buttons {
+        margin-right: 8vw;
     }
-    .description {
-        font-size: 15px;
+    .search {
+        width: 58vw;
+        margin-right: 3vw;
     }
 }

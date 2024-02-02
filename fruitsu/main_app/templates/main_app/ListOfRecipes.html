@@ -1,36 +1,20 @@
-{% extends 'main_app/osnova.html' %}
+<!-- recipes_list.html -->
+{% extends 'main_app/base.html' %}
 {% load static %}
+
 {% block content %}
-    <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
-        <div class="main-content" style="align-items: flex-start;">
-            <p class="Head" style="font-size: 40px; padding-left: 30px;"> Рецепты: </p>
-            <ol class="list">
-
-                <a href="../Recipe" class="line">
-                    <img class="logo-icon" src="{% static 'main_app/img/ZeroTwo.jpg'%}"/>
-                    <div class="description">
-                        <p class="Head"> Жареный лёд</p>
-                        Вкуснейший лёд
-                    </div>
-                </a>
-
-                <a href="../Recipe" class="line">
-                    <img class="logo-icon" src="{% static 'main_app/img/ZeroTwo.jpg'%}"/>
-                    <div class="description">
-                        <p class="Head"> Жареный лёд</p>
-                        Вкуснейший лёд
-                    </div>
-                </a>
-
-                <a href="../Recipe" class="line">
-                    <img class="logo-icon" src="{% static 'main_app/img/ZeroTwo.jpg'%}"/>
-                    <div class="description">
-                        <p class="Head"> Жареный лёд</p>
-                        Вкуснейший лёд
-                    </div>
-                </a>
-
-            </ol>
-        </div>
-    </main>
+<div class="main-content" style="align-items: flex-start;">
+    <p class="Head" style="font-size: 40px; padding-left: 30px;">
+        Рецепты:
+    </p>
+    <ul class="list">
+        {% for p in recipes %}
+        <li>
+            <h1>{{ p.name }}</h1>
+            <img src="{{ p.photo }}" alt="{{ p.name }} Photo">
+            <p>{{ p.difficult }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

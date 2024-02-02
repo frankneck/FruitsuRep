@@ -1,10 +1,9 @@
-from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-from django.template import loader
-from .models import Post
+from .models import *
+
 
 def index(request):
-    return render(request, 'main_app/base.html', {'title': 'Главная страница'})
+    return render(request, 'main_app/main_page.html', {'title': 'Главная страница', 'anime_titles': Anime.objects.all()})
 
 
 def auth(request):
@@ -20,19 +19,12 @@ def registration(request):
 
 
 def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/home.html', context)
+    return render(request, 'blog/home.html', {'posts': Post.objects.all()})
 
 
-def EmptyPage(request):
-    return render(request, 'main_app/EmptyPage.html')
-
-
-def Recipe(request):
+def RecipeF(request):
     return render(request, 'main_app/Recipe.html', {'title': 'Блюдо'})
 
 
 def ListOfRecipes(request):
-    return render(request, 'main_app/ListOfRecipes.html', {'title': 'Список блюд'})
+    return render(request, 'main_app/ListOfRecipes.html', {'recipes': Recipe.objects.all(), 'title': 'Список блюд'})

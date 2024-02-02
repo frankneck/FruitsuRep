@@ -1,0 +1,26 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+
+{% block content %}
+<main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})">
+    <div class="main-content">
+
+        <ul class="list">
+            {% for p in anime_titles %}
+            <li>
+                <h1>{{ p.title }}</h1>
+                <img src="{{ p.photo }}" alt="{{ p.name }} Photo">
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="showcase">
+            <a href="ListOfRecipes/" class="poster">
+                <img class="anime-poster" src="{% static 'main_app/img/Soma.jpg' %}" alt="Soma Poster"/>
+                Повар боец Сома
+            </a>
+
+        </div>
+    </div>
+</main>
+{% endblock %}

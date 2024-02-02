@@ -93,4 +93,4 @@ def LogoutPage(request):
 
 
 def UserProfile(request):
-    return render(request, 'users/UserProfile.html', {'title: Профиль пользователя  '})
+    return render(request, 'users/UserProfile.html')
