@@ -44,6 +44,11 @@ input {
     display: flex;
     flex-direction: column;
 }
+.profile-image {
+    width: 125px;
+    height: 125px;
+    padding: 5px;
+}
 
 .main-content {
     background: #FFC0CB;
