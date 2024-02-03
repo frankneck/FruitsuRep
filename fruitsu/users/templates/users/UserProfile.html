@@ -15,7 +15,7 @@
             <div class="user">
                 {% csrf_token %}
             {% if user.username == form.instance.username %}
-                    <input id="id_image" type="file" name="image hidden/">
+                    <input id="id_image" type="file" name="image" hidden/>
                         <label for="id_image">
                             <img class="profile-image"
                                  src="{{ form.instance.image.url }}"
