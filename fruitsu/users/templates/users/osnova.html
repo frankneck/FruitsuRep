@@ -19,9 +19,9 @@
             <div class="right-buttons">
                 <input class="search"type="text" id="search" placeholder="Поиск">
                 {% if request.user.is_authenticated %}
-                <a href="../UserProfile/{{ user.username }}"><img class="user-icon" src="{% static 'main_app/img/user.png'%}"/>{{ user.username }}</a>
+                    <a href="{% url 'profile' username=user.username %}"><img class="user-icon" src="{% static 'main_app/img/user.png'%}"/>{{ user.username }}</a>
                 {% else %}
-                <a href="../login"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
+                    <a href="../login"><img class="user-icon" src="{% static 'main_app/img/user.png'%}" /></a>
                 {% endif %}
             </div>
         </header>

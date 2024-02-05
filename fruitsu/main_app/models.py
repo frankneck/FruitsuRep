@@ -3,6 +3,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.conf import settings
+from django.utils import timezone
+from tinymce.models import HTMLField
 
 User = get_user_model()
 class Ingredient(models.Model):
@@ -89,4 +91,41 @@ class Post(models.Model):
 
     def str(self):
         return self.title
+
+
+
+
+class ArticleSeries(models.Model):
+    title = models.CharField(max_length=255, default="Default Name")
+    subtitle = models.CharField(max_length=200, default="", blank=True)
+    slug = models.SlugField("Series slug", null=False, blank=False, unique=True)
+    published = models.DateTimeField("Дата публикации", default=timezone.now)
+
+    def __str__(self):
+        return self.title
+    class Meta:
+        verbose_name_plural = "Series"
+        ordering = ['-published']
+
+class Article(models.Model):
+    title = models.CharField(max_length=255, default="Default Name")
+    article_slug = models.SlugField("Article slug", null=False, blank=False, unique=True)
+    content = HTMLField(blank=True, default="")
+    notes = HTMLField(blank=True, default="")
+    published = models.DateTimeField("Дата публикации", default=timezone.now)
+    modified = models.DateTimeField("Дата изменения", default=timezone.now)
+    series = models.ForeignKey(ArticleSeries, default="", verbose_name="Series", on_delete=models.SET_DEFAULT)
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def slug(self):
+        return self.series.slug + "/" + self.article_slug
+
+    class Meta:
+        verbose_name_plural = "Article"
+        ordering = ['-published']
+
+
 

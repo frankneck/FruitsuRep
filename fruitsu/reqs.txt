@@ -3,3 +3,5 @@ six
 bootrstap4
 django-crispy-froms
 crispy-bootstrap4
+django-tinymce
+fontawesomefree

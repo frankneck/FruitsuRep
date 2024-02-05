@@ -4,13 +4,13 @@
 {% block content %}
     <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
         <div class="main-content">
-         {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
                     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
         <form method="POST" enctype="multipart/form-data">
             <div class="user">
                 {% csrf_token %}
