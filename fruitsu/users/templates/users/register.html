@@ -21,13 +21,6 @@
                     {% render_field form.email placeholder="Почта" %}<br>
                     {% render_field form.password1 placeholder="Пароль" type="password" %}<br>
                     {% render_field form.password2 placeholder="Подтвердите пароль" type="password" %}<br>
-                    {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
                     <button class="button10" type="submit">Зарегистрироваться</button>
                 </form>
             </div>

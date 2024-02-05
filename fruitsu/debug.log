@@ -3365,3 +3365,30 @@ Importing WmfImagePlugin
 Importing XbmImagePlugin
 Importing XpmImagePlugin
 Importing XVThumbImagePlugin
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\forms.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /activate/MTE/c1y803-c742bcc056a74a7a6a8a479c0c17f2c8
+Traceback (most recent call last):
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\users\views.py", line 30, in activate
+    return redirect('login')
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\users\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\users\views.py changed, reloading.
+Watching for file changes with StatReloader

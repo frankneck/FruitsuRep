@@ -27,7 +27,7 @@ def activate(request, uidb64, token):
         user.save()
 
         messages.success(request, "Успешное подтверждение почты")
-        return redirect('login')
+        return redirect('../../login')
     else:
         messages.error(request, "Неправильная ссылка активации")
 
@@ -44,7 +44,7 @@ def activateEmail(request, user, to_email):
     })
     email = EmailMessage(mail_subject, message, to=[to_email])
     if email.send():
-        messages.success(request, f'r <b>{user}</b>,Пожалуйста проверьте свою электронную почту <b>{to_email}</b> чтобы подтвердить регистрацию <b>Note:</b> Проверьте вкладку спам.')
+        messages.success(request, f'<b>{user}</b>,Пожалуйста проверьте свою электронную почту <b>{to_email}</b> чтобы подтвердить регистрацию <b>Note:</b> Проверьте вкладку спам.')
     else:
         messages.error(request, f'Не получилость отправить письмо на {to_email}, проверьте, правильно ли вы указали почту.')
 
