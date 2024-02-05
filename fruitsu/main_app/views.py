@@ -55,7 +55,7 @@ def new_series(request):
         form = SeriesCreateForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("homepage")
+            return redirect("../../")
 
     else:
         form = SeriesCreateForm()
@@ -99,7 +99,7 @@ def series_update(request, series):
         form = SeriesUpdateForm(request.POST, request.FILES, instance=matching_series)
         if form.is_valid():
             form.save()
-            return redirect('homepage')
+            return redirect('../../')
 
     else:
         form = SeriesUpdateForm(instance=matching_series)

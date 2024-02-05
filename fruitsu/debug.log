@@ -3392,3 +3392,74 @@ C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\users\views.py changed, reload
 Watching for file changes with StatReloader
 C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\users\views.py changed, reloading.
 Watching for file changes with StatReloader
+Importing BlpImagePlugin
+Importing BmpImagePlugin
+Importing BufrStubImagePlugin
+Importing CurImagePlugin
+Importing DcxImagePlugin
+Importing DdsImagePlugin
+Importing EpsImagePlugin
+Importing FitsImagePlugin
+Importing FliImagePlugin
+Importing FpxImagePlugin
+Image: failed to import FpxImagePlugin: No module named 'olefile'
+Importing FtexImagePlugin
+Importing GbrImagePlugin
+Importing GifImagePlugin
+Importing GribStubImagePlugin
+Importing Hdf5StubImagePlugin
+Importing IcnsImagePlugin
+Importing IcoImagePlugin
+Importing ImImagePlugin
+Importing ImtImagePlugin
+Importing IptcImagePlugin
+Importing JpegImagePlugin
+Importing Jpeg2KImagePlugin
+Importing McIdasImagePlugin
+Importing MicImagePlugin
+Image: failed to import MicImagePlugin: No module named 'olefile'
+Importing MpegImagePlugin
+Importing MpoImagePlugin
+Importing MspImagePlugin
+Importing PalmImagePlugin
+Importing PcdImagePlugin
+Importing PcxImagePlugin
+Importing PdfImagePlugin
+Importing PixarImagePlugin
+Importing PngImagePlugin
+Importing PpmImagePlugin
+Importing PsdImagePlugin
+Importing QoiImagePlugin
+Importing SgiImagePlugin
+Importing SpiderImagePlugin
+Importing SunImagePlugin
+Importing TgaImagePlugin
+Importing TiffImagePlugin
+Importing WebPImagePlugin
+Importing WmfImagePlugin
+Importing XbmImagePlugin
+Importing XpmImagePlugin
+Importing XVThumbImagePlugin
+Internal Server Error: /naruto/update
+Traceback (most recent call last):
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\decorators.py", line 17, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py", line 102, in series_update
+    return redirect('homepage')
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'homepage' not found. 'homepage' is not a valid view function or pattern name.
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
