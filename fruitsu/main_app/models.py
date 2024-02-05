@@ -1,120 +1,47 @@
-from django.contrib.auth import get_user_model
-from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from mptt.models import MPTTModel, TreeForeignKey
-from django.conf import settings
 from django.utils import timezone
 from tinymce.models import HTMLField
+from django.contrib.auth import get_user_model
 
-User = get_user_model()
-class Ingredient(models.Model):
-    name = models.CharField(max_length=255, default='Default Name')
-    quantity = models.PositiveIntegerField(default=0)
-
-
-class Category(MPTTModel):
-    name = models.CharField(max_length=255, default="Default Name")
-    slug = models.SlugField(max_length=255)
-    parent = TreeForeignKey(
-        'self',
-        related_name='children',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
-    )
-
-    def __str__(self):
-        return self.name
-
-    class MPTTMeta:
-        order_insertion_by = ['name']
-
-
-class Step(models.Model):
-    number_of_step = models.PositiveIntegerField(default=1)
-    description = models.TextField(blank=True)
-    image_of_step = models.ImageField(upload_to='image_of_step/', blank=True)
-
-
-class Anime(models.Model):
-    title = models.CharField(max_length=255, default="Default Name")
-    slug = models.SlugField(max_length=255)
-
-    def __str__(self):
-        return self.title
-
-
-class Recipe(models.Model):
-    name = models.CharField(max_length=255, verbose_name='Название рецепта', default="Default Name")
-    difficult = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)], verbose_name='Сложность', default=1)
-    ingredients = models.ManyToManyField(Ingredient, related_name='used_in_recipes', verbose_name='Ингредиенты')
-    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)], verbose_name='Рейтинг', default=1)
-    anime_title = models.ForeignKey(
-        Anime,
-        related_name='recipes',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        verbose_name='Принадлежность к аниме'
-    )
-    category = models.ForeignKey(
-        Category,
-        related_name='recipes',
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        verbose_name='Категория рецепта'
-    )
-    time = models.PositiveIntegerField(default=0, verbose_name='Время приготовления')
-    photo = models.ImageField(upload_to="recipe_photos/", blank=True, verbose_name='Изображение')
-    direction = models.ManyToManyField(Step, verbose_name='Рецепт')
-    time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
-    time_update = models.DateTimeField(auto_now=True, verbose_name='Время обновления')
-    is_published = models.BooleanField(default=True, verbose_name='Статус')
-
-    def __str__(self):
-        return self.name
-
-
-class Favorite(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    recipes = models.ManyToManyField(Recipe)
-
-    def __str__(self):
-        return f"{self.user.username}'s Favorites"
-
-
-class Post(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def str(self):
-        return self.title
-
-
-
+from django.template.defaultfilters import slugify
+import os
 
 class ArticleSeries(models.Model):
-    title = models.CharField(max_length=255, default="Default Name")
+    def image_upload_to(self, instance=None):
+        if instance:
+            return os.path.join("ArticleSeries", slugify(self.slug), instance)
+        return None
+
+    title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=200, default="", blank=True)
     slug = models.SlugField("Series slug", null=False, blank=False, unique=True)
-    published = models.DateTimeField("Дата публикации", default=timezone.now)
+    published = models.DateTimeField("Date published", default=timezone.now)
+    author = models.ForeignKey(get_user_model(), default=1, on_delete=models.SET_DEFAULT)
+    image = models.ImageField(default='default/no_image.jpg', upload_to=image_upload_to ,max_length=255)
 
     def __str__(self):
         return self.title
+
     class Meta:
         verbose_name_plural = "Series"
         ordering = ['-published']
 
 class Article(models.Model):
-    title = models.CharField(max_length=255, default="Default Name")
+    def image_upload_to(self, instance=None):
+        if instance:
+            return os.path.join("ArticleSeries", slugify(self.series.slug), slugify(self.article_slug), instance)
+        return None
+
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200, default="", blank=True)
     article_slug = models.SlugField("Article slug", null=False, blank=False, unique=True)
     content = HTMLField(blank=True, default="")
     notes = HTMLField(blank=True, default="")
-    published = models.DateTimeField("Дата публикации", default=timezone.now)
-    modified = models.DateTimeField("Дата изменения", default=timezone.now)
+    published = models.DateTimeField("Date published", default=timezone.now)
+    modified = models.DateTimeField("Date modified", default=timezone.now)
     series = models.ForeignKey(ArticleSeries, default="", verbose_name="Series", on_delete=models.SET_DEFAULT)
+    author = models.ForeignKey(get_user_model(), default=1, on_delete=models.SET_DEFAULT)
+    image = models.ImageField(default='default/no_image.jpg', upload_to=image_upload_to ,max_length=255)
 
     def __str__(self):
         return self.title
@@ -126,6 +53,3 @@ class Article(models.Model):
     class Meta:
         verbose_name_plural = "Article"
         ordering = ['-published']
-
-
-

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from django import forms
 from .tokens import account_activation_token
 from django.template.loader import render_to_string
@@ -9,8 +9,9 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.core.mail import EmailMessage
-from django.contrib.auth import get_user_model
 from .forms import UserRegistrationForm, UserUpdateForm
+from .decorators import user_not_authenticated
+from django.contrib.auth.decorators import login_required
 
 
 def activate(request, uidb64, token):
@@ -46,30 +47,34 @@ def activateEmail(request, user, to_email):
         messages.error(request, "Проверьте, правильно ли вы ввели почтовый адрес")
 
 
+@user_not_authenticated
 def register(request):
-    if request.user.is_authenticated:
-        return redirect('/')
     if request.method == "POST":
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active=False
-            user.save()
-            activateEmail(request, user, form.cleaned_data.get('email'))
+            user = form.save()
             login(request, user)
+            messages.success(request, f"New account created: {user.username}")
             return redirect('/')
+
         else:
             for error in list(form.errors.values()):
-                print(request, error)
-            messages.error(request, "Проверьте точность введеных данных")
+                messages.error(request, error)
+
     else:
-         form = UserRegistrationForm()
+        form = UserRegistrationForm()
 
     return render(
         request=request,
-        template_name= "users/register.html",
+        template_name='users/register.html',
         context={"form": form}
-    )
+        )
+
+@login_required
+def custom_logout(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("homepage")
 
 
 def LoginPage(request):

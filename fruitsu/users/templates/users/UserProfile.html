@@ -1,52 +1,42 @@
-{% extends 'users/osnova.html' %}
-{% load static %}
+{% extends "main_app/osnova.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
-        <div class="main-content">
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        <form method="POST" enctype="multipart/form-data">
-            <div class="user">
-                {% csrf_token %}
+<div class="content-section col-lg-12 col-md-12 col-sm-12 tutorial-style" style="min-height:65vh;">
+    <legend class="border-bottom mb-4">Профиль:</legend>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="media">
             {% if user.username == form.instance.username %}
-                    <input id="id_image" type="file" name="image" hidden/>
-                        <label for="id_image">
-                            <img class="profile-image"
-                                 src="{{ form.instance.image.url }}"
-                                 style="cursor: pointer"
-                                 title="Upload new image">
-                        </label>
-                {% else %}
-                    <img class="profile-image" src="{{ form.instance.image.url }}">
-                {% endif %}
-                <h2 class="Nickname">{{ form.instance.username }}
+                <input id="id_image" type="file" name="image" hidden/>
+                    <label for="id_image">
+                        <img class="rounded-circle account-img profile-image"
+                            style="cursor: pointer"
+                            src="{{ form.instance.image.url }}"
+                            title="Загрузить картинку">
+                    </label>
+            {% else %}
+                <img class="rounded-circle account-img profile-image", src="{{ form.instance.image.url }}">
+            {% endif %}
+            <div class="media-body">
+                <h2 class="account-heading">{{ form.instance.username }}
+                    <small class="text-muted">({{ form.instance.status }})</small>
                 </h2>
-                <p>{{ form.instance.email }}</p>
-                <p>{{ form.instance.description }}</p>
+                <p class="text-secondary">{{ form.instance.email }}</p>
+                <p class="text-secondary">{{ form.instance.description }}</p>
             </div>
-            {% if user.username == form.instance.username %}
-            <fieldset>
-                <h2>Изменить информарцию профиля</h2>
+        </div>
+
+        {% if user.username == form.instance.username %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Редактировать профиль</legend>
                 {{ form.email|as_crispy_field }}
                 {{ form.description|as_crispy_field }}
             </fieldset>
-            <div>
-                <button class="button10" type="submit">Обновить</button>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+                <a class="url-box" href="../logout">Выйти из профиля</a>
             </div>
-            {% endif %}
-            <div class="urls">
-                <a class="url-box" href="">Мои рецепты</a>
-                <a class="url-box" href="">Избранное</a>
-            </div>
-            <a class="url-box" href="../logout" style="background-color: #FFC0CB">Выйти из профиля</a>
-
-        </form>
-        </div>
-    </main>
-{% endblock %}
+        {% endif %}
+    </form>
+</div>
+{% endblock content %}

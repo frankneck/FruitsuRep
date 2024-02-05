@@ -1,4 +1,4 @@
-{% extends 'users/osnova.html' %}
+{% extends 'main_app/osnova.html' %}
 {% load widget_tweaks %}
 {% load static %}
 {% load crispy_forms_tags %}
@@ -17,10 +17,10 @@
 
                 <form class="go" action="" method="post">
                     {% csrf_token %}
-                    {% render_field form.username placeholder="Имя пользователя" %}
-                    {% render_field form.email placeholder="Почта" %}
-                    {% render_field form.password1 placeholder="Пароль" type="password" %}
-                    {% render_field form.password2 placeholder="Подтвердите пароль" type="password" %}
+                    {% render_field form.username placeholder="Имя пользователя" %}<br>
+                    {% render_field form.email placeholder="Почта" %}<br>
+                    {% render_field form.password1 placeholder="Пароль" type="password" %}<br>
+                    {% render_field form.password2 placeholder="Подтвердите пароль" type="password" %}<br>
                     {% if messages %}
                     <ul class="messages">
                         {% for message in messages %}

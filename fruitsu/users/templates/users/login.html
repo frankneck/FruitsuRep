@@ -1,5 +1,6 @@
-{% extends 'users/osnova.html' %}
+{% extends "main_app/osnova.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
         <main role="main" class="main-container" style="background-image: url({% static 'main_app/img/Background.jpg' %})" >
             <div class="main-content">
@@ -12,7 +13,8 @@
                     <div class="login">
                         <label for="username"></label>
                         <input type="text" id="username" name="username" placeholder="Логин">
-                        <div>
+                        <div><br>
+                            <label for="username"></label>
                             <input type="password" id="form-pass" name="pass" class="form-pass" placeholder="Пароль">
                             <span class="pass-icon" id="pass-icon"><img src="{% static 'main_app/img/passeye.png'%}" style="width: 20px; height: 20px; margin-left: -42px"> </span>
                         </div>
@@ -33,7 +35,9 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
+                    <a href="{% url 'register' %}">
                         <button class="button10" type="submit">Войти</button>
+                    </a>
                     </form>
                     </a>
                     <a href="../register">
