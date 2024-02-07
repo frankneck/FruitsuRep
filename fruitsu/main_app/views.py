@@ -12,6 +12,7 @@ from django.contrib import messages
 from django.http import JsonResponse
 import os
 from uuid import uuid4
+from django.views.generic import ListView
 
 
 def index(request):
@@ -232,18 +233,19 @@ def newsletter(request):
     form.fields['receivers'].initial = ','.join([active.email for active in SubscribedUsers.objects.all()])
     return render(request=request, template_name='main/newsletter.html', context={'form': form})
 
+
+class Search(ListView):
+    template_name = 'main_app/base.html'
+    context_object_name = 'news'
+    paginate_by = 5
+
+    def get_queryset(self):
+        return ArticleSeries.objects.filter(title__icontains=self.request.GET.get("q"))
+
+    def get_context_data(self, object_list=None, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context["q"] = self.request.GET.get("q")
+        return context
+
 def pageNotFound(request, exception):
     return render(request, 'main_app/404.html')
-
-
-def EmptyPage(request):
-    return render(request, 'main_app/EmptyPage.html')
-
-
-def Recipe(request):
-    return render(request, 'main_app/Recipe.html', {'title': 'Блюдо'})
-
-
-def ListOfRecipes(request):
-    return render(request, 'main_app/ListOfRecipes.html', {'title': 'Список блюд'})
-
