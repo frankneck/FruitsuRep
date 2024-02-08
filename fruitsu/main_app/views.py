@@ -234,18 +234,21 @@ def newsletter(request):
     return render(request=request, template_name='main/newsletter.html', context={'form': form})
 
 
-class Search(ListView):
-    template_name = 'main_app/base.html'
-    context_object_name = 'news'
-    paginate_by = 5
-
-    def get_queryset(self):
-        return ArticleSeries.objects.filter(title__icontains=self.request.GET.get("q"))
-
-    def get_context_data(self, object_list=None, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context["q"] = self.request.GET.get("q")
-        return context
 
 def pageNotFound(request, exception):
     return render(request, 'main_app/404.html')
+
+class BlogSearchView(ListView):
+    template_name = 'main_app/base.html'
+    context_object_name = 'objects'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        article_results = Article.objects.filter(title__icontains=query)
+        series_results = ArticleSeries.objects.filter(title__icontains=query)
+        # Скомбинируем результаты из обеих моделей
+        combined_results = list(article_results) + list(series_results)
+        # Отсортируем их по дате публикации (если это поле существует в обеих моделях)
+        combined_results.sort(key=lambda x: getattr(x, 'published', None), reverse=True)
+        return combined_results
+

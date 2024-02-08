@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import Search
+from .views import *
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -14,5 +14,5 @@ urlpatterns = [
     path("<series>/<article>/update", views.article_update, name="article_update"),
     path("<series>/<article>/delete", views.article_delete, name="article_delete"),
     path("<series>/<article>/upload_image", views.upload_image, name="upload_image"),
-    path("search/", Search.as_view(), name='search'),
+    path('search/', views.BlogSearchView.as_view(), name='search_blogs'),
 ]

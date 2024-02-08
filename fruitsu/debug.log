@@ -4007,3 +4007,58 @@ C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, rel
 Watching for file changes with StatReloader
 C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /search-blogs/
+Traceback (most recent call last):
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\venv\lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py", line 260, in get_queryset
+    return Blog.objects.filter(title__icontains=query).order_by('-published')
+NameError: name 'Blog' is not defined
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\vladr\PycharmProjects\FruitsuRep\fruitsu\main_app\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /search-blogs/
