@@ -42,12 +42,15 @@ def series(request, series: str):
 
 def article(request, series: str, article: str):
     matching_article = Article.objects.filter(series__slug=series, article_slug=article).first()
+    matching_series = ArticleSeries.objects.filter(slug=series).first()
 
     return render(
         request=request,
         template_name='main_app/article.html',
-        context={"object": matching_article}
+        context={"object": matching_article, "series": matching_series}
     )
+
+
 
 
 @user_is_superuser

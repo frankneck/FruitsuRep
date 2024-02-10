@@ -20,6 +20,7 @@ class ArticleCreateForm(forms.ModelForm):
         fields = [
             "title",
             "subtitle",
+            "category",
             "article_slug",
             "content",
             "notes",
@@ -44,6 +45,7 @@ class ArticleUpdateForm(forms.ModelForm):
         fields = [
             "title",
             "subtitle",
+            "category",
             "content",
             "notes",
             "series",

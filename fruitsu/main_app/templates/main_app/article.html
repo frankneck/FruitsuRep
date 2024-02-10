@@ -1,11 +1,13 @@
 {% extends "main_app/osnova.html" %}
 {% block content %}
+
 <div class="row media content-section mobiledevice">
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="d-flex">
             <div>
                 <h1 class="title-style">{{ object.title }}</h1>
                 <h2 class="subtitle-style">{{ object.subtitle }}</h2>
+                <h1 class="subtitle-style">{{ object.category }}</h1>
             </div>
         </div>
         <div class="d-flex article-metadata">
@@ -14,10 +16,12 @@
                 <small class="text-muted">Published {{ object.published|date:"F d, Y" }}</small>
             </div>
             {% if object.author == user %}
-                <div class="ml-auto">
-                    <a class="btn btncolor btn-sm mt-1 mb-1" href="{% url 'article_update' object.series.slug object.article_slug %}">Update</a>
-                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'article_delete' object.series.slug object.article_slug  %}">Delete</a>
-                </div>
+            <div class="ml-auto">
+                <a class="btn btncolor btn-sm mt-1 mb-1"
+                   href="{% url 'article_update' object.series.slug object.article_slug %}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1"
+                   href="{% url 'article_delete' object.series.slug object.article_slug  %}">Delete</a>
+            </div>
             {% endif %}
         </div>
     </div>
@@ -26,4 +30,17 @@
             {{ object.content|safe }}
         </div>
     </div>
-{% endblock content %}
+    {% endblock content %}
+
+    {% block breadcrumbs %}
+    <li itemprop="itemListElement">
+        <a itemprop="item" href="/{{ object.series.slug }}">
+            <span itemprop="name">{{ object.series.title }}</span>
+        </a>
+    </li>
+    <li itemprop="itemListElement">
+        <a itemprop="item" href="">
+            <span itemprop="name">{{ object.title }}</span>
+        </a>
+    </li>
+    {% endblock %}

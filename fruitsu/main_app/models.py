@@ -6,6 +6,16 @@ from django.contrib.auth import get_user_model
 from django.template.defaultfilters import slugify
 import os
 
+class Category(models.Model):
+    title = models.CharField(max_length = 200)
+    slug = models.SlugField(max_length = 160, unique = True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
 class ArticleSeries(models.Model):
     def image_upload_to(self, instance=None):
         if instance:
@@ -39,7 +49,12 @@ class Article(models.Model):
     notes = HTMLField(blank=True, default="")
     published = models.DateTimeField("Date published", default=timezone.now)
     modified = models.DateTimeField("Date modified", default=timezone.now)
-    series = models.ForeignKey(ArticleSeries, default="", verbose_name="Series", on_delete=models.SET_DEFAULT)
+    series = models.ForeignKey(
+        ArticleSeries, default="", verbose_name="Series", on_delete=models.SET_DEFAULT
+    )
+    category = models.ForeignKey(
+        Category, verbose_name="Categories", on_delete=models.SET_NULL, null=True,
+    )
     author = models.ForeignKey(get_user_model(), default=1, on_delete=models.SET_DEFAULT)
     image = models.ImageField(default='default/no_image.jpg', upload_to=image_upload_to ,max_length=255)
 
@@ -53,3 +68,4 @@ class Article(models.Model):
     class Meta:
         verbose_name_plural = "Article"
         ordering = ['-published']
+

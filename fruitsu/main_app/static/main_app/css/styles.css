@@ -79,6 +79,20 @@ a.article-title:hover {
   border-bottom: 1px solid #e3e3e3
 }
 
+.breadcrumbs {
+    display: flex;
+    list-style-type: none;
+}
+
+.breadcrumbs li {
+    text-decoration: none;
+    margin: 0px 10px;
+}
+
+.breadcrumbs li a{
+    text-decoration: none;
+}
+
 .article-metadata a:hover {
   color: #333;
   text-decoration: none;
