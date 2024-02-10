@@ -5069,3 +5069,5 @@ Traceback (most recent call last):
 django.template.exceptions.TemplateSyntaxError: 'extends' takes one argument
 C:\Users\FinnFirst\PycharmProjects\pythonProject\FruitsuRep\fruitsu\main_app\views.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader

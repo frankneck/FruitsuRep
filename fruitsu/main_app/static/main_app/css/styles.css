@@ -20,13 +20,10 @@
   background-color: var(--navbarcolor);
 }
 
-.footer-color {
-  background-color: var(--footercolor);
-}
-
 body {
   background: #fafafa;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
@@ -81,7 +78,15 @@ a.article-title:hover {
 
 .breadcrumbs {
     display: flex;
+    background-color: white;
     list-style-type: none;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.breadcrumbs dl, ol, ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .breadcrumbs li {
@@ -203,6 +208,40 @@ a.article-title:hover {
   width: 125px;
   height: 125px;
   padding: 5px;
+}
+
+.site-footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #3D424E;
+}
+
+.developers {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    padding-left: 0;
+}
+
+.developers a {
+    text-decoration: none;
+}
+
+.site-footer p, .site-footer a {
+    color: white;
+}
+
+.site-footer a:hover {
+    color: pink;
+}
+
+.about_us{
+    display: flex;
+    margin-top: 20px;
+}
+
+.col-md-6 h2 {
+    color: white;
 }
 
 .site-footer .navbar-nav .nav-link {

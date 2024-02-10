@@ -1,4 +1,7 @@
 {% load static %}
+{% include 'main_app/includes/navbar.html' %}
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +28,6 @@
 
 </head>
 <body>
-{% include 'main_app/includes/navbar.html' %}
 <div class="background-container"
      style="background-image: url({% static 'main_app/img/Background.jpg' %}); background-size: 25%; width: 100%; height: 15vh;">
     <main role="main" class="container-xl">
@@ -43,9 +45,10 @@
                 {% block content %}
                 {% endblock %}
             </div>
-            </ol>
+        </div>
     </main>
 </div>
+{% include 'main_app/includes/footer.html' %}
 
 <!-- Prism JS -->
 <script src="{% static 'prism.js' %}"></script>
