@@ -7,20 +7,20 @@
             <div>
                 <h1 class="title-style">{{ object.title }}</h1>
                 <h2 class="subtitle-style">{{ object.subtitle }}</h2>
-                <h1 class="subtitle-style">{{ object.category }}</h1>
+                <h2 class="subtitle-style"> Категория: {{ object.category }}</h2>
             </div>
         </div>
         <div class="d-flex article-metadata">
             <div>
                 <a class='mr-2' href="{% url 'profile' object.author %}">{{ object.author }}</a>
-                <small class="text-muted">Published {{ object.published|date:"F d, Y" }}</small>
+                <small class="text-muted">Опубликовано {{ object.published|date:"F d, Y" }}</small>
             </div>
             {% if object.author == user %}
             <div class="ml-auto">
                 <a class="btn btncolor btn-sm mt-1 mb-1"
-                   href="{% url 'article_update' object.series.slug object.article_slug %}">Update</a>
+                   href="{% url 'article_update' object.series.slug object.article_slug %}">Изменить</a>
                 <a class="btn btn-danger btn-sm mt-1 mb-1"
-                   href="{% url 'article_delete' object.series.slug object.article_slug  %}">Delete</a>
+                   href="{% url 'article_delete' object.series.slug object.article_slug  %}">Удалить</a>
             </div>
             {% endif %}
         </div>
@@ -28,6 +28,12 @@
     <div class="col-lg-9 col-md-12 col-sm-12" id="content">
         <div class="article-style">
             {{ object.content|safe }}
+        </div>
+        <div class="article-style">
+            {{ object.notes|safe }}
+        </div>
+        <div class="article-style">
+            <img src="{{ object.image.url }}" alt="Изображение">
         </div>
     </div>
     {% endblock content %}

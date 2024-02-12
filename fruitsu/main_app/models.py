@@ -22,12 +22,12 @@ class ArticleSeries(models.Model):
             return os.path.join("ArticleSeries", slugify(self.slug), instance)
         return None
 
-    title = models.CharField(max_length=200)
-    subtitle = models.CharField(max_length=200, default="", blank=True)
-    slug = models.SlugField("Series slug", null=False, blank=False, unique=True)
-    published = models.DateTimeField("Date published", default=timezone.now)
+    title = models.CharField("Название оняме", max_length=200)
+    subtitle = models.CharField("Краткое описание", max_length=200, default="", blank=True)
+    slug = models.SlugField("Слаг", null=False, blank=False, unique=True)
+    published = models.DateTimeField("Время публикации", default=timezone.now)
     author = models.ForeignKey(get_user_model(), default=1, on_delete=models.SET_DEFAULT)
-    image = models.ImageField(default='default/no_image.jpg', upload_to=image_upload_to ,max_length=255)
+    image = models.ImageField("Изображение", default='default/no_image.jpg', upload_to=image_upload_to ,max_length=255)
 
     def __str__(self):
         return self.title
@@ -42,21 +42,21 @@ class Article(models.Model):
             return os.path.join("ArticleSeries", slugify(self.series.slug), slugify(self.article_slug), instance)
         return None
 
-    title = models.CharField(max_length=200)
-    subtitle = models.CharField(max_length=200, default="", blank=True)
-    article_slug = models.SlugField("Article slug", null=False, blank=False, unique=True)
-    content = HTMLField(blank=True, default="")
-    notes = HTMLField(blank=True, default="")
+    title = models.CharField("Название рецепта", max_length=200)
+    subtitle = models.CharField("Краткое описание", max_length=200, default="", blank=True)
+    article_slug = models.SlugField("Слаг", null=False, blank=False, unique=True)
+    content = HTMLField("Ингредиенты", blank=True, default="")
+    notes = HTMLField("Приготовление", blank=True, default="")
     published = models.DateTimeField("Date published", default=timezone.now)
     modified = models.DateTimeField("Date modified", default=timezone.now)
     series = models.ForeignKey(
-        ArticleSeries, default="", verbose_name="Series", on_delete=models.SET_DEFAULT
+        ArticleSeries, default="", verbose_name="Оняме", on_delete=models.SET_DEFAULT
     )
     category = models.ForeignKey(
-        Category, verbose_name="Categories", on_delete=models.SET_NULL, null=True,
+        Category, verbose_name="Категория", on_delete=models.SET_NULL, null=True,
     )
     author = models.ForeignKey(get_user_model(), default=1, on_delete=models.SET_DEFAULT)
-    image = models.ImageField(default='default/no_image.jpg', upload_to=image_upload_to ,max_length=255)
+    image = models.ImageField("Изображение", default='default/no_image.jpg', upload_to=image_upload_to ,max_length=255)
 
     def __str__(self):
         return self.title

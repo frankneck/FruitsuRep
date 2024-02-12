@@ -163,7 +163,11 @@ a.article-title:hover {
 .errorlist {
     list-style: None;
 }
+.article-style img {
+    max-width: 100%;
+}
 
+}
 .article-style h1, h3 {
   font-weight: bold;
   border-bottom: 1px solid rgba(0,0,0,.1);
@@ -345,12 +349,11 @@ a.article-title:hover {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 2500px) {
   .site-footer .col-md-6 {
     display: none;
   }
 }
-
 
 .header-container {
   text-align: left;
@@ -378,7 +381,6 @@ a.article-title:hover {
     background-color: #000000;
 }
 
-/* Расположение справа */
 .url-box {
-    margin-left: 85vh;
+    margin-left: 1vh;
 }
