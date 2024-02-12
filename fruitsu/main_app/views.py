@@ -6,7 +6,8 @@ from django.conf import settings
 from users.models import SubscribedUsers
 from django.views.decorators.csrf import csrf_exempt
 from .decorators import user_is_superuser
-from .forms import NewsletterForm, SeriesCreateForm, ArticleCreateForm, SeriesUpdateForm, ArticleUpdateForm#, NewsletterForm
+from .forms import NewsletterForm, SeriesCreateForm, ArticleCreateForm, SeriesUpdateForm, \
+    ArticleUpdateForm  # , NewsletterForm
 from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.http import JsonResponse
@@ -26,6 +27,7 @@ def index(request):
             "type": "series"
         }
     )
+
 
 def series(request, series: str):
     matching_series = Article.objects.filter(series__slug=series).all()
@@ -49,8 +51,6 @@ def article(request, series: str, article: str):
         template_name='main_app/article.html',
         context={"object": matching_article, "series": matching_series}
     )
-
-
 
 
 @user_is_superuser
@@ -237,9 +237,9 @@ def newsletter(request):
     return render(request=request, template_name='main/newsletter.html', context={'form': form})
 
 
-
 def pageNotFound(request, exception):
     return render(request, 'main_app/404.html')
+
 
 class BlogSearchView(ListView):
     template_name = 'main_app/base.html'
@@ -249,9 +249,6 @@ class BlogSearchView(ListView):
         query = self.request.GET.get('q')
         article_results = Article.objects.filter(title__icontains=query)
         series_results = ArticleSeries.objects.filter(title__icontains=query)
-        # Скомбинируем результаты из обеих моделей
         combined_results = list(article_results) + list(series_results)
-        # Отсортируем их по дате публикации (если это поле существует в обеих моделях)
         combined_results.sort(key=lambda x: getattr(x, 'published', None), reverse=True)
         return combined_results
-

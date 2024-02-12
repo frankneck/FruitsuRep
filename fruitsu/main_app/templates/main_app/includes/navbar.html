@@ -13,7 +13,7 @@
                     <div class="header-container"><a href="../"><img class="header-image" src="{% static 'main_app/img/Logo.png'%}"/></a></div>
                     <form  action="{% url 'search_blogs' %}" method="get">
                     {% csrf_token %}
-                        <input type="text" name="q" placeholder=":)">
+                        <input type="text" name="q" placeholder="Искать">
                         <button type="submit" >Поиск</button>
                     </form>
                 </div>

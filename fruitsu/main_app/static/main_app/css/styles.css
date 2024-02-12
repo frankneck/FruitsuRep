@@ -345,6 +345,13 @@ a.article-title:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .site-footer .col-md-6 {
+    display: none;
+  }
+}
+
+
 .header-container {
   text-align: left;
 }
